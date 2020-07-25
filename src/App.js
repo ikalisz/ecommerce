@@ -1,16 +1,16 @@
 import React from 'react';
 import {
-  BrowserRouter as Router, BrowserRouter,
+  BrowserRouter as Router,
 } from 'react-router-dom'
-import logo from './logo.svg';
-import './App.css';
+import Main from './Components/Main'
 
 function App() {
   return (
-    <BrowserRouter
+    <Router
       basename="/"
     >
-    </BrowserRouter>
+      <Main />
+    </Router>
   );
 }
 
