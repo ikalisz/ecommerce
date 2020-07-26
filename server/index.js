@@ -2,17 +2,27 @@ require('dotenv').config()
 const express = require('express')
 const session = require('express-session')
 const mongoose = require('mongoose')
-const bodyParser = require('body-parser')
+
+const items = require('./routes/api/items')
 
 const app = express()
 
 // Bodyparser Middleware
-app.use(bodyParser.json())
+app.use(express.json())
 
 const {
   SERVER_PORT,
   SESSION_SECRET,
+  MONGO_URI,
 } = process.env
+
+const db = MONGO_URI
+const port = SERVER_PORT || 5000
+
+mongoose
+  .connect(db, { useUnifiedTopology: true, useNewUrlParser: true })
+  .then(() => console.log('Connected!'))
+  .catch(err => console.log(err))
 
 app.use(session({
   secret: SESSION_SECRET,
@@ -23,7 +33,9 @@ app.use(session({
   }
 }))
 
+// Routes
+app.use('/api/items', items)
 
-app.listen(SERVER_PORT, () => {
-  console.log(`Server is up and running!`)
+app.listen(port, () => {
+  console.log(`Server is up and running on port ${port}!`)
 })

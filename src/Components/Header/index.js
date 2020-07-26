@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import LeftMenu from './LeftMenu'
+import RightMenu from './RightMenu'
 
 function Header() {
   return (
     <SContainer>
       <LeftMenu />
+      <SImgPlaceholder />
+      <RightMenu />
     </SContainer>
   )
 }
@@ -13,10 +16,11 @@ function Header() {
 export default Header
 
 const SContainer = styled.div`
-  width: 100%;
+  width: 100% - 10px;
   height: 30px;
-  padding: 10px 0;
-  background-color: grey;
+  float: top;
   display: flex;
-  justify-content: space-inbetween;
+  justify-content: space-between;
 `
+
+const SImgPlaceholder = styled.div``

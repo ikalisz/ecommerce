@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-  GiHamburgerMenu,
-} from 'react-icons/gi'
+import Navbar from '../../Navbar'
 
 function LeftMenu() {
   return (
     <SContainer>
-      <GiHamburgerMenu />
+
+      <SNavbar />
     </SContainer>
   )
 }
@@ -15,8 +14,14 @@ function LeftMenu() {
 export default LeftMenu
 
 const SContainer = styled.div`
-  padding-left: 30px;
   @media (min-width: 1000px;) {
     display: flex;
+  }
+`
+
+const SNavbar = styled(Navbar)`
+  display: flex;
+  @media (min-width: 1000px) {
+    display: none;
   }
 `
