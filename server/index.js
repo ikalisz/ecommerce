@@ -3,7 +3,7 @@ const express = require('express')
 const session = require('express-session')
 const mongoose = require('mongoose')
 
-const items = require('./routes/api/items')
+const items = require('./api/items')
 
 const app = express()
 
