@@ -10,7 +10,19 @@ const ItemSchema = new Schema({
   cost: {
     type: Number,
     required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
+  sale: {
+    type: Boolean,
+    default: false,
+  },
+  kids: {
+    type: Boolean,
+    default: false,
   }
 })
 
-module.exports = Item = mongoose.model('item', ItemSchema)
+module.exports = mongoose.model('item', ItemSchema)

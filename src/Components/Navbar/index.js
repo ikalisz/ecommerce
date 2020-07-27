@@ -3,16 +3,15 @@ import React, {
 } from 'react'
 import styled from 'styled-components'
 import {
-  Navbar,
+  Navbar as ReactStrapNavbar,
   NavbarToggler,
-  NavbarBrand,
   Collapse,
   NavItem,
   NavLink,
   Nav,
 } from 'reactstrap'
 
-function Sidebar() {
+function Navbar() {
   const [
     collapsed,
     setCollapsed,
@@ -45,8 +44,8 @@ function Sidebar() {
   )
 }
 
-export default Sidebar
+export default Navbar
 
 
-const SMobile = styled(Navbar)`
+const SMobile = styled(ReactStrapNavbar)`
 `
