@@ -1,15 +1,17 @@
 import React, {
   useState,
 } from 'react'
-import styled from 'styled-components'
 import {
-  Navbar as ReactStrapNavbar,
-  NavbarToggler,
   Collapse,
+  Navbar as AppNavbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
   NavItem,
   NavLink,
-  Nav,
+  Container,
 } from 'reactstrap'
+import styled from 'styled-components'
 
 function Navbar() {
   const [
@@ -17,35 +19,65 @@ function Navbar() {
     setCollapsed,
   ] = useState(true)
 
-  const handleToggleNavbar = () => setCollapsed(!collapsed)
+  const handleCollapse = () => {
+    setCollapsed(!collapsed)
+  }
 
   return (
-      <SMobile
-        color="faded"
-        light
+    <SContainer>
+      <AppNavbar
+        color="dark"
+        dark
+        expand="sm"
+        className="mb-5"
       >
-        <NavbarToggler
-          className="mr-2"
-          onClick={handleToggleNavbar}
-        />
-        <Collapse
-          isOpen={!collapsed}
-          navbar
-        >
-          <Nav
+        <Container>
+          <NavbarBrand
+            href="/"
+          >
+            Clothing
+          </NavbarBrand>
+          <NavbarToggler
+            onClick={handleCollapse}
+          />
+          <Collapse
+            isOpen={!collapsed}
             navbar
           >
-            <NavItem>
-              <NavLink href="/">Home</NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </SMobile>
+            <Nav
+              className="ml-auto"
+              navbar
+            >
+              <NavItem>
+                <NavLink
+                  href="/clothing?section=men"
+                >
+                  Men
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  href="/clothing?section=women"
+                >
+                  Women
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  href="/clothing?section=kids"
+                >
+                  Kids
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Container>
+      </AppNavbar>
+    </SContainer>
   )
 }
 
 export default Navbar
 
-
-const SMobile = styled(ReactStrapNavbar)`
+const SContainer = styled.div`
 `

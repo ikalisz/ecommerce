@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import routes from '../../router'
-import Header from '../Header'
+import Navbar from '../Navbar'
 
 function Main() {
   return (
     <MainDiv>
-      <Header />
+      <Navbar />
       {routes}
     </MainDiv>
   )

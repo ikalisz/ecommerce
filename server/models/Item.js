@@ -11,17 +11,13 @@ const ItemSchema = new Schema({
     type: Number,
     required: true,
   },
-  gender: {
-    type: String,
-    required: true,
-  },
   sale: {
     type: Boolean,
     default: false,
   },
-  kids: {
-    type: Boolean,
-    default: false,
+  section: {
+    type: String,
+    required: true,
   }
 })
 
