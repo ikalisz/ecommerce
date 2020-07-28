@@ -11,10 +11,6 @@ const ItemSchema = new Schema({
     type: Number,
     required: true,
   },
-  sale: {
-    type: Boolean,
-    default: false,
-  },
   section: {
     type: String,
     required: true,

@@ -23,10 +23,6 @@ function Clothing() {
     )
   }
 
-  console.log('here')
-
-  console.log('section:', section)
-
   return (
     <SContainer>
       {Array.isArray(clothing) ? clothing.map(mapClothing) : null}
@@ -34,10 +30,14 @@ function Clothing() {
   )
 }
 
-export default Clothing
+export default React.memo(Clothing)
 
 const SContainer = styled.div`
-  height: 100px;
-  width: 100px;
-  background: grey;
+  width: 100% - 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-gap: .5rem;
+  align-items: flex-start;
 `

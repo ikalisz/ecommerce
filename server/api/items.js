@@ -23,16 +23,12 @@ router.post('/', (req, res) => {
   const {
     name,
     cost,
-    gender,
-    sale,
-    kids,
+    section,
   } = req.body
   const newItem = new Item({
     name,
     cost,
-    gender,
-    sale,
-    kids,
+    section,
   })
 
   newItem.save()
