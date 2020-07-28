@@ -50,21 +50,21 @@ function Navbar() {
             >
               <NavItem>
                 <NavLink
-                  href="/clothing?section=men"
+                  href="/clothing/men"
                 >
                   Men
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink
-                  href="/clothing?section=women"
+                  href="/clothing/women"
                 >
                   Women
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink
-                  href="/clothing?section=kids"
+                  href="/clothing/kids"
                 >
                   Kids
                 </NavLink>
