@@ -1,24 +1,40 @@
-import React from 'react'
+import React, {
+  useEffect,
+} from 'react'
 import styled from 'styled-components'
 import {
-  useSelector
+  useSelector,
+  useDispatch,
 } from 'react-redux'
 import {
   useParams,
 } from 'react-router-dom'
+import {
+  getClothing,
+} from '../../redux/actions/clothing'
 import ClothingItem from './Item'
 
 function Clothing() {
   const {
     section,
   } = useParams()
+  const dispatch = useDispatch()
 
-  const clothing = useSelector(state => state.clothing)
+  useEffect(() => {
+    dispatch(getClothing(section))
+  }, [dispatch, section])
 
-  const mapClothing = (clothing) => {
+  const {
+    clothing,
+    loading,
+  } = useSelector(state => state.clothing)
+
+
+  const mapClothing = (clothing, index) => {
     return (
       <ClothingItem
         clothing={clothing}
+        key={index}
       />
     )
   }
@@ -30,7 +46,7 @@ function Clothing() {
   )
 }
 
-export default React.memo(Clothing)
+export default Clothing
 
 const SContainer = styled.div`
   width: 100% - 20px;

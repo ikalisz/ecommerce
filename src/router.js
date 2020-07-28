@@ -8,7 +8,8 @@ import Clothing from './Components/Clothing/index'
 
 export default (
   <Switch>
-    <Route path="/clothing/:id" component={Clothing} />
+    <Route path="/clothing/:section" component={Clothing} />
+    <Route path="/clothing" component={Clothing} />
     <Route exact path="/" component={Home} />
   </Switch>
 )

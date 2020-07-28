@@ -16,6 +16,24 @@ router.get('/', (req, res) => {
     .then(items => res.json(items))
 })
 
+
+// @route GET api/items/:section
+// @desc Get All items in a section
+// @access Public
+router.get('/:section', (req, res) => {
+  const {
+    sort = { cost: -1 },
+  } = req.query
+  const {
+    section,
+  } = req.params
+  Item.find({
+    section,
+  })
+    .sort(sort)
+    .then(items => res.json(items))
+})
+
 // @route POST api/items
 // @desc Create an Item
 // @access Public

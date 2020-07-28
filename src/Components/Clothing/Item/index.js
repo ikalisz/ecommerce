@@ -28,7 +28,11 @@ function ClothingItem({
         <CardTitle>
           ${cost}
         </CardTitle>
-        <Button>Add to cart</Button>
+        <Button
+          color="primary"
+        >
+          Add to cart
+        </Button>
       </CardBody>
       <CardFooter>
         {section}
