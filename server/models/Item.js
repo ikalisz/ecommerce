@@ -14,6 +14,10 @@ const ItemSchema = new Schema({
   section: {
     type: String,
     required: true,
+  },
+  src: {
+    type: String,
+    default: 'https://cdn.sstatic.net/Img/unified/sprites.svg?v=e5e58ae7df45',
   }
 })
 
