@@ -52,9 +52,7 @@ router.post('/', (req, res) => {
                 {
                   id: user._id,
                 },
-                {
-                  jwtSecret: JWT_SECRET,
-                },
+                  JWT_SECRET,
                 {
                   expiresIn: 3600,
                 },
