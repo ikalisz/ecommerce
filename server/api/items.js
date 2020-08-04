@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const auth = require('../middleware/auth')
 
 //Item Model
 const Item = require('../models/Item')
@@ -36,8 +37,8 @@ router.get('/:section', (req, res) => {
 
 // @route POST api/items
 // @desc Create an Item
-// @access Public
-router.post('/', (req, res) => {
+// @access Private
+router.post('/', auth, (req, res) => {
   const {
     name,
     cost,
@@ -58,8 +59,8 @@ router.post('/', (req, res) => {
 
 // @route DELETE api/items/:id
 // @desc Delete an Item
-// @access Public
-router.delete('/:id', (req, res) => {
+// @access Private
+router.delete('/:id', auth, (req, res) => {
   const {
     id,
   } = req.params
