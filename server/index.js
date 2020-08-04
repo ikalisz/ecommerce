@@ -4,6 +4,8 @@ const session = require('express-session')
 const mongoose = require('mongoose')
 
 const items = require('./api/items')
+const users = require('./api/users')
+const auth = require('./api/auth')
 
 const app = express()
 
@@ -20,7 +22,11 @@ const db = MONGO_URI
 const port = SERVER_PORT || 5000
 
 mongoose
-  .connect(db, { useUnifiedTopology: true, useNewUrlParser: true })
+  .connect(db, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+  })
   .then(() => console.log('Connected!'))
   .catch(err => console.log(err))
 
@@ -35,6 +41,8 @@ app.use(session({
 
 // Routes
 app.use('/api/items', items)
+app.use('/api/users', users)
+app.use('/api/auth', auth)
 
 app.listen(port, () => {
   console.log(`Server is up and running on port ${port}!`)
