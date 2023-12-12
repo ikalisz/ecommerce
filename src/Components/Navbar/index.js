@@ -11,6 +11,7 @@ import {
   NavLink,
   Container,
 } from 'reactstrap'
+// This seems like a lot... Maybe react router?
 import styled from 'styled-components'
 
 function Navbar() {
@@ -18,10 +19,6 @@ function Navbar() {
     collapsed,
     setCollapsed,
   ] = useState(true)
-
-  const handleCollapse = () => {
-    setCollapsed(!collapsed)
-  }
 
   return (
     <SContainer>
@@ -38,7 +35,7 @@ function Navbar() {
             Clothing
           </NavbarBrand>
           <NavbarToggler
-            onClick={handleCollapse}
+            onClick={setCollapsed(!collapsed)}
           />
           <Collapse
             isOpen={!collapsed}
