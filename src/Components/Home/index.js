@@ -4,7 +4,7 @@ import styled from 'styled-components'
 function Home() {
   return (
     <SContainer>
-      
+      Home Page
     </SContainer>
   )
 }

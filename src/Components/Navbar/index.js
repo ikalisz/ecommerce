@@ -20,62 +20,71 @@ function Navbar() {
     setCollapsed,
   ] = useState(true)
 
+  const toggleCollapse = () => {
+    setCollapsed(!collapsed)
+    console.log(collapsed);
+  };
+
+  console.log('COLLAPSE', collapsed);
+
   return (
     <SContainer>
       <AppNavbar
         color="dark"
         dark
-        expand="sm"
-        className="mb-5"
+        expand
+        className="me-auto"
+        conatiner='lg'
       >
-        <Container>
           <NavbarBrand
             href="/"
           >
             Clothing
           </NavbarBrand>
           <NavbarToggler
-            onClick={setCollapsed(!collapsed)}
+            onClick={toggleCollapse}
+            className="me-2"
           />
           <Collapse
+            color="dark"
             isOpen={!collapsed}
             navbar
+            horizontal={false}
           >
             <Nav
-              className="ml-auto"
+              className="me-auto"
               navbar
             >
-              <NavItem>
+              {/* <NavItem> */}
                 <NavLink
                   href="/clothing"
                 >
                   All
                 </NavLink>
-              </NavItem>
-              <NavItem>
+              {/* </NavItem> */}
+              {/* <NavItem> */}
                 <NavLink
                   href="/clothing/Men"
                 >
                   Men
                 </NavLink>
-              </NavItem>
-              <NavItem>
+              {/* </NavItem> */}
+              {/* <NavItem> */}
                 <NavLink
                   href="/clothing/Women"
                 >
                   Women
                 </NavLink>
-              </NavItem>
-              <NavItem>
+              {/* </NavItem> */}
+              {/* <NavItem> */}
                 <NavLink
                   href="/clothing/Kids"
                 >
                   Kids
                 </NavLink>
-              </NavItem>
+              {/* </NavItem> */}
             </Nav>
           </Collapse>
-        </Container>
       </AppNavbar>
     </SContainer>
   )

@@ -57,8 +57,8 @@ router.post('/', (req, res) => {
                   expiresIn: 3600,
                 },
                 (err, token) => {
-                  if(err) throw err
-                  res.status(200).json({
+                  if(err) return res.status(500).statusMessage(err);
+                  return res.status(200).json({
                     token,
                     user: {
                       id: user._id,
